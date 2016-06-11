@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{59FB6C3E-E183-46E3-A02B-3DB914C166D9}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>c:\users\silentangel\documents\visual studio 2015\Projects\Bejewled\Bejewled.View\Bejewled.ViewContent\</RootDirectory>
+      <LoggerRootDirectory>c:\users\silentangel\documents\visual studio 2015\Projects\Bejewled\Bejewled.View\Bejewled.View\</LoggerRootDirectory>
+      <IntermediateDirectory>c:\users\silentangel\documents\visual studio 2015\Projects\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>c:\users\silentangel\documents\visual studio 2015\Projects\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-06-11T19:18:23.5675393+03:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
