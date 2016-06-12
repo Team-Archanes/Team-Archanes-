@@ -1,1 +1,2 @@
 c:\users\silentangel\documents\visual studio 2015\Projects\Bejewled\Bejewled.View\Bejewled.ViewContent\obj\x86\Debug\Bejewled.ViewContent.contentprojResolveAssemblyReference.cache
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.ViewContent\obj\x86\Debug\Bejewled.ViewContent.contentprojResolveAssemblyReference.cache

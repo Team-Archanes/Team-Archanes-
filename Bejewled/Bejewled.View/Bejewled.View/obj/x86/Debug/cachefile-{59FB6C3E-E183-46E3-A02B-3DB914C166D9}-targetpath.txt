@@ -1,0 +1,7 @@
+Content\bluegemTrans.xnb
+Content\greengemTrans.xnb
+Content\pinkTrans.xnb
+Content\rainbowgemTrans.xnb
+Content\redgemTrans.xnb
+Content\whitegemTans.xnb
+Content\yellowTrans.xnb

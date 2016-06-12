@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="BejeweledView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -68,9 +68,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bejewled.Presenter\Bejewled.Presenter.csproj">
-      <Project>{083e5728-d520-4185-8d67-aee78b21d846}</Project>
-      <Name>Bejewled.Presenter</Name>
+    <ProjectReference Include="..\..\Bejewled.Model\Bejewled.Core.csproj">
+      <Project>{16b44c15-62d4-41f3-8755-af5983fe49fb}</Project>
+      <Name>Bejewled.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bejewled.ViewContent\Bejewled.ViewContent.contentproj">
       <Name>Bejewled.ViewContent</Name>

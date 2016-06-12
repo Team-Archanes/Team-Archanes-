@@ -30,50 +30,50 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="greengem.jpg">
-      <Name>greengem</Name>
+    <Compile Include="bluegemTrans.jpg">
+      <Name>bluegemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bluegem.jpg">
-      <Name>bluegem</Name>
+    <Compile Include="greengemTrans.jpg">
+      <Name>greengemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="rainbowgem.jpg">
-      <Name>rainbowgem</Name>
+    <Compile Include="pinkTrans.jpg">
+      <Name>pinkTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="redgem.jpg">
-      <Name>redgem</Name>
+    <Compile Include="rainbowgemTrans.jpg">
+      <Name>rainbowgemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="trianlge2.jpg">
-      <Name>trianlge2</Name>
+    <Compile Include="redgemTrans.jpg">
+      <Name>redgemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="whitegem.jpg">
-      <Name>whitegem</Name>
+    <Compile Include="whitegemTans.jpg">
+      <Name>whitegemTans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="yellow2.jpg">
-      <Name>yellow2</Name>
+    <Compile Include="yellowTrans.jpg">
+      <Name>yellowTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

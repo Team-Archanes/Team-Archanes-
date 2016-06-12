@@ -1,5 +1,10 @@
 namespace Bejewled.View
 {
+    using System;
+
+    using Bejewled.Model;
+    using Bejewled.Model.Interfaces;
+
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
@@ -7,16 +12,36 @@ namespace Bejewled.View
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class BejeweledView : Game, IView
     {
         private GraphicsDeviceManager graphics;
 
+        private BejeweledPresenter presenter;
+
         private SpriteBatch spriteBatch;
 
-        public Game1()
+        Texture2D[] textureTiles = new Texture2D[8];
+
+        public BejeweledView()
         {
             this.graphics = new GraphicsDeviceManager(this);
             this.Content.RootDirectory = "Content";
+        }
+
+        public int[,] Tiles { get; set; }
+
+        public event EventHandler OnLoad;
+
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime gameTime)
+        {
+            this.GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            // TODO: Add your drawing code here
+            base.Draw(gameTime);
         }
 
         /// <summary>
@@ -28,7 +53,7 @@ namespace Bejewled.View
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            this.presenter = new BejeweledPresenter(this, new GameBoard());
             base.Initialize();
         }
 
@@ -40,6 +65,11 @@ namespace Bejewled.View
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
+
+            if (this.OnLoad != null)
+            {
+                this.OnLoad(this, EventArgs.Empty);
+            }
 
             // TODO: use this.Content to load your game content here
         }
@@ -67,21 +97,7 @@ namespace Bejewled.View
             }
 
             // TODO: Add your update logic here
-
             base.Update(gameTime);
-        }
-
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
-        {
-            this.GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
-
-            base.Draw(gameTime);
         }
     }
 }

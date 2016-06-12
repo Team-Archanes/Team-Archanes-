@@ -1,0 +1,6 @@
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.Model\bin\x86\Debug\Bejewled.Model.dll
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.Model\bin\x86\Debug\Bejewled.Model.pdb
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Core.csprojResolveAssemblyReference.cache
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Model.dll
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Model.pdb
