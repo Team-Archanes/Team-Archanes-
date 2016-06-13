@@ -8,6 +8,9 @@ namespace Bejewled.View
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+    using Microsoft.Xna.Framework.Media;
+    using Microsoft.Xna.Framework.Audio;
+    using Microsoft.Xna.Framework.Content;
 
     /// <summary>
     /// This is the main type for your game
@@ -26,6 +29,19 @@ namespace Bejewled.View
         {
             this.graphics = new GraphicsDeviceManager(this);
             this.Content.RootDirectory = "Content";
+        }
+
+        protected ContentManager contentManager;
+        public void PlaySound(string assetName)
+        {
+            SoundEffect snd = contentManager.Load<SoundEffect>(assetName);
+            snd.Play();
+        }
+
+        public void PlayMusic(string assetName, bool repeat = true)
+        {
+            MediaPlayer.IsRepeating = repeat;
+            MediaPlayer.Play(contentManager.Load<Song>(assetName));
         }
 
         public int[,] Tiles { get; set; }
