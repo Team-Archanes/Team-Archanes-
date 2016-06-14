@@ -6,18 +6,15 @@ namespace Bejewled.View
     using Bejewled.Model.Interfaces;
 
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-    using Microsoft.Xna.Framework.Media;
 
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class BejeweledView : Game, IView
     {
-        private readonly ContentManager contentManager;
 
         private readonly Texture2D[] textureTiles;
 
@@ -28,32 +25,22 @@ namespace Bejewled.View
         private BejeweledPresenter presenter;
 
         private SpriteBatch spriteBatch;
+        private AssetManager assetManager;
 
         public BejeweledView()
         {
-            this.contentManager = this.contentManager;
             this.textureTiles = new Texture2D[7];
             this.graphics = new GraphicsDeviceManager(this);
             this.graphics.PreferredBackBufferHeight = 600;
             this.graphics.PreferredBackBufferWidth = 800;
             this.Content.RootDirectory = "Content";
+            this.assetManager = new AssetManager(Content);
         }
 
         public event EventHandler OnLoad;
 
         public int[,] Tiles { get; set; }
 
-        public void PlayMusic(string assetName, bool repeat = true)
-        {
-            MediaPlayer.IsRepeating = repeat;
-            MediaPlayer.Play(this.contentManager.Load<Song>(assetName));
-        }
-
-        public void PlaySound(string assetName)
-        {
-            var snd = this.contentManager.Load<SoundEffect>(assetName);
-            snd.Play();
-        }
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -123,6 +110,7 @@ namespace Bejewled.View
             this.textureTiles[5] = this.Content.Load<Texture2D>(@"whitegemTrans");
             this.textureTiles[6] = this.Content.Load<Texture2D>(@"yellowgemTrans");
             this.grid = this.Content.Load<Texture2D>(@"boardFinal");
+            //this.assetManager.PlayMusic("snd_music");
 
             if (this.OnLoad != null)
             {
