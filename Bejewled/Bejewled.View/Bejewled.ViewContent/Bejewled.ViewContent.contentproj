@@ -30,50 +30,49 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bluegemTrans.jpg">
-      <Name>bluegemTrans</Name>
+    <Compile Include="boardFinal.jpg">
+      <Name>boardFinal</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="greengemTrans.jpg">
+    <Compile Include="greengemTrans.png">
       <Name>greengemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pinkTrans.jpg">
-      <Name>pinkTrans</Name>
+    <Compile Include="bluegemTrans.png">
+      <Name>bluegemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="rainbowgemTrans.jpg">
-      <Name>rainbowgemTrans</Name>
+    <Compile Include="purplegemTrans.png">
+      <Name>purplegemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="redgemTrans.jpg">
+    <Compile Include="rainbowTrans.png">
+      <Name>rainbowTrans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="redgemTrans.png">
       <Name>redgemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="whitegemTans.jpg">
-      <Name>whitegemTans</Name>
+    <Compile Include="whitegemTrans.png">
+      <Name>whitegemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="yellowTrans.jpg">
-      <Name>yellowTrans</Name>
+    <Compile Include="yellowgemTrans.png">
+      <Name>yellowgemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

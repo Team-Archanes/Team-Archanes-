@@ -6,47 +6,54 @@ namespace Bejewled.View
     using Bejewled.Model.Interfaces;
 
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
+    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using Microsoft.Xna.Framework.Media;
-    using Microsoft.Xna.Framework.Audio;
-    using Microsoft.Xna.Framework.Content;
 
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class BejeweledView : Game, IView
     {
-        private GraphicsDeviceManager graphics;
+        private readonly ContentManager contentManager;
+
+        private readonly Texture2D[] textureTiles;
+
+        private readonly GraphicsDeviceManager graphics;
+
+        private Texture2D grid;
 
         private BejeweledPresenter presenter;
 
         private SpriteBatch spriteBatch;
 
-        Texture2D[] textureTiles = new Texture2D[8];
-
         public BejeweledView()
         {
+            this.contentManager = this.contentManager;
+            this.textureTiles = new Texture2D[7];
             this.graphics = new GraphicsDeviceManager(this);
+            this.graphics.PreferredBackBufferHeight = 600;
+            this.graphics.PreferredBackBufferWidth = 800;
             this.Content.RootDirectory = "Content";
         }
 
-        protected ContentManager contentManager;
-        public void PlaySound(string assetName)
-        {
-            SoundEffect snd = contentManager.Load<SoundEffect>(assetName);
-            snd.Play();
-        }
+        public event EventHandler OnLoad;
+
+        public int[,] Tiles { get; set; }
 
         public void PlayMusic(string assetName, bool repeat = true)
         {
             MediaPlayer.IsRepeating = repeat;
-            MediaPlayer.Play(contentManager.Load<Song>(assetName));
+            MediaPlayer.Play(this.contentManager.Load<Song>(assetName));
         }
 
-        public int[,] Tiles { get; set; }
-
-        public event EventHandler OnLoad;
+        public void PlaySound(string assetName)
+        {
+            var snd = this.contentManager.Load<SoundEffect>(assetName);
+            snd.Play();
+        }
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -55,6 +62,32 @@ namespace Bejewled.View
         protected override void Draw(GameTime gameTime)
         {
             this.GraphicsDevice.Clear(Color.CornflowerBlue);
+            this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            this.spriteBatch.Draw(this.grid, Vector2.Zero, Color.White);
+            this.spriteBatch.End();
+            var scale = 0.5f;
+            this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            this.spriteBatch.Draw(
+                this.textureTiles[0], 
+                new Vector2(250, 115), 
+                null, 
+                Color.White, 
+                0f, 
+                Vector2.Zero, 
+                0.5f, 
+                SpriteEffects.None, 
+                0);
+            this.spriteBatch.Draw(
+                this.textureTiles[1],
+                new Vector2(250, 50),
+                null,
+                Color.White,
+                0f,
+                Vector2.Zero,
+                0.5f,
+                SpriteEffects.None,
+                0);
+            this.spriteBatch.End();
 
             // TODO: Add your drawing code here
             base.Draw(gameTime);
@@ -70,6 +103,7 @@ namespace Bejewled.View
         {
             // TODO: Add your initialization logic here
             this.presenter = new BejeweledPresenter(this, new GameBoard());
+            this.IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -81,6 +115,14 @@ namespace Bejewled.View
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
+            this.textureTiles[0] = this.Content.Load<Texture2D>(@"bluegemTrans");
+            this.textureTiles[1] = this.Content.Load<Texture2D>(@"greengemTrans");
+            this.textureTiles[2] = this.Content.Load<Texture2D>(@"purplegemTrans");
+            this.textureTiles[3] = this.Content.Load<Texture2D>(@"rainbowTrans");
+            this.textureTiles[4] = this.Content.Load<Texture2D>(@"redgemTrans");
+            this.textureTiles[5] = this.Content.Load<Texture2D>(@"whitegemTrans");
+            this.textureTiles[6] = this.Content.Load<Texture2D>(@"yellowgemTrans");
+            this.grid = this.Content.Load<Texture2D>(@"boardFinal");
 
             if (this.OnLoad != null)
             {

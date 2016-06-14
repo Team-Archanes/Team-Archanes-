@@ -2,67 +2,76 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>bluegemTrans.jpg</Source>
-      <Name>bluegemTrans</Name>
+      <Source>boardFinal.jpg</Source>
+      <Name>boardFinal</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\bluegemTrans.xnb</Output>
-      <Time>2016-06-13T12:15:27.1579538+03:00</Time>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\boardFinal.xnb</Output>
+      <Time>2016-06-12T23:16:12.7902266+03:00</Time>
     </Item>
     <Item>
-      <Source>greengemTrans.jpg</Source>
+      <Source>greengemTrans.png</Source>
       <Name>greengemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\greengemTrans.xnb</Output>
-      <Time>2016-06-13T12:15:27.2320064+03:00</Time>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\greengemTrans.xnb</Output>
+      <Time>2016-06-13T22:55:50.3330533+03:00</Time>
     </Item>
     <Item>
-      <Source>pinkTrans.jpg</Source>
-      <Name>pinkTrans</Name>
+      <Source>bluegemTrans.png</Source>
+      <Name>bluegemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\pinkTrans.xnb</Output>
-      <Time>2016-06-13T12:15:27.7213544+03:00</Time>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\bluegemTrans.xnb</Output>
+      <Time>2016-06-13T23:00:47.2299229+03:00</Time>
     </Item>
     <Item>
-      <Source>rainbowgemTrans.jpg</Source>
-      <Name>rainbowgemTrans</Name>
+      <Source>purplegemTrans.png</Source>
+      <Name>purplegemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\rainbowgemTrans.xnb</Output>
-      <Time>2016-06-13T12:15:27.7623838+03:00</Time>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\purplegemTrans.xnb</Output>
+      <Time>2016-06-13T23:01:36.9125332+03:00</Time>
     </Item>
     <Item>
-      <Source>redgemTrans.jpg</Source>
+      <Source>rainbowTrans.png</Source>
+      <Name>rainbowTrans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\rainbowTrans.xnb</Output>
+      <Time>2016-06-13T23:02:03.5781142+03:00</Time>
+    </Item>
+    <Item>
+      <Source>redgemTrans.png</Source>
       <Name>redgemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\redgemTrans.xnb</Output>
-      <Time>2016-06-13T12:15:27.8044118+03:00</Time>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\redgemTrans.xnb</Output>
+      <Time>2016-06-13T23:02:32.8439831+03:00</Time>
     </Item>
     <Item>
-      <Source>whitegemTans.jpg</Source>
-      <Name>whitegemTans</Name>
+      <Source>whitegemTrans.png</Source>
+      <Name>whitegemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\whitegemTans.xnb</Output>
-      <Time>2016-06-13T12:15:27.8544482+03:00</Time>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\whitegemTrans.xnb</Output>
+      <Time>2016-06-13T22:59:10.971433+03:00</Time>
     </Item>
     <Item>
-      <Source>yellowTrans.jpg</Source>
-      <Name>yellowTrans</Name>
+      <Source>yellowgemTrans.png</Source>
+      <Name>yellowgemTrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\yellowTrans.xnb</Output>
-      <Time>2016-06-13T12:15:27.9094866+03:00</Time>
+      <Output>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\yellowgemTrans.xnb</Output>
+      <Time>2016-06-13T22:59:57.9085368+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -71,10 +80,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.ViewContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.ViewContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -102,8 +111,8 @@
         <Value>2011-09-01T16:22:30+03:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2016-06-13T13:06:37.723732+03:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-06-11T19:18:23.5675393+03:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
