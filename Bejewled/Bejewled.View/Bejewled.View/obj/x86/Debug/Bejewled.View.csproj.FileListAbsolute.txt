@@ -85,3 +85,4 @@ C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.Vie
 C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.pdb
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.exe
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.pdb
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\scoreFont.xnb
