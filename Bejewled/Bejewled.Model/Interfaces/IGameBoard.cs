@@ -2,6 +2,6 @@
 {
     public interface IGameBoard
     {
-        ITile[,] InitializeGameBoard();
+        int[,] InitializeGameBoard();
     }
 }

@@ -26,9 +26,9 @@ namespace Bejewled.View
         private BejeweledPresenter presenter;
 
         private SpriteBatch spriteBatch;
-        private AssetManager assetManager;
+        private readonly AssetManager assetManager;
 
-        private Score score;
+        private readonly Score score;
 
         private SpriteFont scoreFont;
 
@@ -36,13 +36,13 @@ namespace Bejewled.View
 
         public BejeweledView()
         {
-            this.textureTiles = new Texture2D[7];
+            this.textureTiles = new Texture2D[8];
             this.graphics = new GraphicsDeviceManager(this);
             this.graphics.PreferredBackBufferHeight = 600;
             this.graphics.PreferredBackBufferWidth = 800;
             this.Content.RootDirectory = "Content";
             this.score = new Score();
-            assetManager = new AssetManager(Content);
+            this.assetManager = new AssetManager(this.Content);
         }
 
         public event EventHandler OnLoad;
@@ -62,28 +62,19 @@ namespace Bejewled.View
             this.spriteBatch.End();
             var scale = 0.5f;
             this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            float x = 250;
+            for (int i = 0; i < this.Tiles.GetLength(0); i++)
+            {
+                float y = 50;
+                for (int j = 0; j < this.Tiles.GetLength(1); j++)
+                {
+                    this.spriteBatch.Draw(this.textureTiles[this.Tiles[i, j]], new Vector2(x, y), null, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+                    y += 65;
+                }
+                x += 65;
+            }
             
-            this.spriteBatch.Draw(
-                this.textureTiles[0], 
-                new Vector2(250, 115), 
-                null, 
-                Color.White, 
-                0f, 
-                Vector2.Zero, 
-                0.5f, 
-                SpriteEffects.None, 
-                0);
-            this.spriteBatch.Draw(
-                this.textureTiles[1],
-                new Vector2(250, 50),
-                null,
-                Color.White,
-                0f,
-                Vector2.Zero,
-                0.5f,
-                SpriteEffects.None,
-                0);
-            this.spriteBatch.DrawString(scoreFont,
+            this.spriteBatch.DrawString(this.scoreFont,
                 "Score: " + this.score.PlayerScore.ToString(),
                 new Vector2(30, 120),
                 Color.GreenYellow);
@@ -116,13 +107,14 @@ namespace Bejewled.View
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
-            this.textureTiles[0] = this.Content.Load<Texture2D>(@"bluegemTrans");
+            this.textureTiles[0] = this.Content.Load<Texture2D>(@"redgemTrans");
             this.textureTiles[1] = this.Content.Load<Texture2D>(@"greengemTrans");
-            this.textureTiles[2] = this.Content.Load<Texture2D>(@"purplegemTrans");
-            this.textureTiles[3] = this.Content.Load<Texture2D>(@"rainbowTrans");
-            this.textureTiles[4] = this.Content.Load<Texture2D>(@"redgemTrans");
+            this.textureTiles[2] = this.Content.Load<Texture2D>(@"bluegemTrans");
+            this.textureTiles[3] = this.Content.Load<Texture2D>(@"yellowgemTrans");
+            this.textureTiles[4] = this.Content.Load<Texture2D>(@"purplegemTrans");
             this.textureTiles[5] = this.Content.Load<Texture2D>(@"whitegemTrans");
-            this.textureTiles[6] = this.Content.Load<Texture2D>(@"yellowgemTrans");
+            this.textureTiles[6] = this.Content.Load<Texture2D>(@"rainbowTrans");
+            this.textureTiles[7] = this.Content.Load<Texture2D>(@"emptyTrans");
             this.grid = this.Content.Load<Texture2D>(@"boardFinal");
             this.scoreFont = this.Content.Load<SpriteFont>("scoreFont");
             this.hintButton = this.Content.Load<Texture2D>(@"hintButton");

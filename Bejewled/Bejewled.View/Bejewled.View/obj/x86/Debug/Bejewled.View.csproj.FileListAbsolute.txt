@@ -112,3 +112,5 @@ C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.Vi
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.csprojResolveAssemblyReference.cache
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\hintButton.xnb
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\hintButton.xnb
+C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\emptyTrans.xnb

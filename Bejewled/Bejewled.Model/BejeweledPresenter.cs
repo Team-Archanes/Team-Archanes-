@@ -19,7 +19,7 @@ namespace Bejewled.Model
 
         private void GameLoaded(object sender, EventArgs eventArgs)
         {
-            var board = this.gameBoard.InitializeGameBoard();
+            this.view.Tiles = this.gameBoard.InitializeGameBoard();
         }
     }
 }

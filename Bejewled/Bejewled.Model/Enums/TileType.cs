@@ -14,6 +14,8 @@
 
         White, 
 
-        RainBow
+        RainBow, 
+
+        Empty
     }
 }

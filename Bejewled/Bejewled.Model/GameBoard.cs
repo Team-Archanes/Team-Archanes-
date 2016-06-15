@@ -34,7 +34,7 @@
 
         }
 
-        public ITile[,] InitializeGameBoard()
+        public int [,] InitializeGameBoard()
         {
             for (var row = 0; row < this.gameBoard.GetLength(0); row++)
             {
@@ -73,7 +73,20 @@
                     this.gameBoard[row, column] = tile;
                 }
             }
-            return this.gameBoard;
+            return this.GenerateNumericGameBoard();
+        }
+
+        private int[,] GenerateNumericGameBoard()
+        {
+            int[,] otherGameBoard = new int[NumberOfRows, NumberOfColumn];
+            for (int i = 0; i < this.gameBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.gameBoard.GetLength(1); j++)
+                {
+                    otherGameBoard[i, j] = (int)this.gameBoard[i, j].TileType;
+                }
+            }
+            return otherGameBoard;
         }
 
         private void CheckForMatch()
