@@ -20,11 +20,18 @@
             this.tileGenerator = new TileGenerator();
         }
 
+        // Checks if move is valid
         public void CheckForValidMove(ITile firstClickedTile, ITile secondClickedTile)
         {
-            // todo: checks if move is valid
-            // if move is valid we call SwapTiles
-            this.SwapTiles(firstClickedTile, secondClickedTile);
+            int differenceX = Math.Abs(firstClickedTile.Position.X - secondClickedTile.Position.X);
+            int differenceY = Math.Abs(firstClickedTile.Position.Y - secondClickedTile.Position.Y);
+
+            // Checking if tiles are next to each other either by X or by Y // ATanev
+            if (differenceX + differenceY == 1)
+            {
+                this.SwapTiles(firstClickedTile, secondClickedTile);
+            }
+
         }
 
         public ITile[,] InitializeGameBoard()
@@ -89,11 +96,14 @@
             throw new NotImplementedException();
         }
 
+        // Logic for swaping tiles // ATanev
         private void SwapTiles(ITile firstClickedTile, ITile secondClickedTile)
         {
-            // todo: add logic for swaping tiles
+            var tempPositionHolder = firstClickedTile.Position;
+            firstClickedTile.Position = secondClickedTile.Position;
+            secondClickedTile.Position = tempPositionHolder;
+
             this.CheckForMatch();
-            throw new NotImplementedException();
         }
 
         public IEnumerable<ITile> GetHint(GameBoard gameBoard)
