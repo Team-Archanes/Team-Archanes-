@@ -56,3 +56,30 @@ C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\B
 C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\rainbowTrans.xnb
 C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\whitegemTrans.xnb
 C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\yellowgemTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\boardFinal.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\greengemTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\bluegemTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\purplegemTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\rainbowTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\redgemTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\whitegemTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\yellowgemTrans.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\scoreFont.xnb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.View.exe
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.View.pdb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.Model.dll
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.Model.pdb
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.exe
+C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.pdb

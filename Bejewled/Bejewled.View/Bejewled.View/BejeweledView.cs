@@ -28,6 +28,10 @@ namespace Bejewled.View
         private SpriteBatch spriteBatch;
         private AssetManager assetManager;
 
+        private Score score;
+
+        private SpriteFont scoreFont;
+
         public BejeweledView()
         {
             this.textureTiles = new Texture2D[7];
@@ -35,6 +39,7 @@ namespace Bejewled.View
             this.graphics.PreferredBackBufferHeight = 600;
             this.graphics.PreferredBackBufferWidth = 800;
             this.Content.RootDirectory = "Content";
+            this.score = new Score();
             assetManager = new AssetManager(Content);
         }
 
@@ -76,6 +81,10 @@ namespace Bejewled.View
                 0.5f,
                 SpriteEffects.None,
                 0);
+            this.spriteBatch.DrawString(scoreFont,
+                "Score: " + this.score.PlayerScore.ToString(),
+                new Vector2(30, 120),
+                Color.GreenYellow);
             this.spriteBatch.End();
 
             // TODO: Add your drawing code here
@@ -112,7 +121,8 @@ namespace Bejewled.View
             this.textureTiles[5] = this.Content.Load<Texture2D>(@"whitegemTrans");
             this.textureTiles[6] = this.Content.Load<Texture2D>(@"yellowgemTrans");
             this.grid = this.Content.Load<Texture2D>(@"boardFinal");
-            
+            this.scoreFont = this.Content.Load<SpriteFont>("scoreFont");
+
 
             if (this.OnLoad != null)
             {
