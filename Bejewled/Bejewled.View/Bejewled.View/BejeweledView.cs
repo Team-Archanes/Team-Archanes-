@@ -1,8 +1,7 @@
-using Microsoft.Xna.Framework.Media;
-
 namespace Bejewled.View
 {
     using System;
+    using System.Windows.Forms;
 
     using Bejewled.Model;
     using Bejewled.Model.Interfaces;
@@ -11,28 +10,36 @@ namespace Bejewled.View
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
+    using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class BejeweledView : Game, IView
     {
-
-        private readonly Texture2D[] textureTiles;
+        private readonly AssetManager assetManager;
 
         private readonly GraphicsDeviceManager graphics;
 
+        private readonly Score score;
+
+        private readonly Texture2D[] textureTiles;
+
+        private Rectangle clickableArea = new Rectangle(240, 40, 525, 525);
+
         private Texture2D grid;
+
+        private Texture2D hintButton;
+
+        private MouseState mouseState;
 
         private BejeweledPresenter presenter;
 
-        private SpriteBatch spriteBatch;
-        private readonly AssetManager assetManager;
-
-        private readonly Score score;
+        private MouseState prevMouseState = Mouse.GetState();
 
         private SpriteFont scoreFont;
 
-        private Texture2D hintButton;
+        private SpriteBatch spriteBatch;
 
         public BejeweledView()
         {
@@ -49,6 +56,27 @@ namespace Bejewled.View
 
         public int[,] Tiles { get; set; }
 
+        public void DetectGameBoardClick()
+        {
+            if (this.mouseState.LeftButton == ButtonState.Pressed
+                && this.prevMouseState.LeftButton == ButtonState.Released)
+            {
+                // We now know the left mouse button is down and it wasn't down last frame
+                // so we've detected a click
+                // Now find the position 
+                var mousePos = new Point(this.mouseState.X, this.mouseState.Y);
+                if (this.clickableArea.Contains(mousePos))
+                {
+                    var indexX = Math.Floor((double)(this.mouseState.X - 240) / 65);
+                    var indexY = Math.Floor((double)(this.mouseState.Y - 40) / 65);
+                    MessageBox.Show(indexX + " " + indexY);
+                }
+            }
+
+            // Store the mouse state so that we can compare it next frame
+            // with the then current mouse state
+            this.prevMouseState = this.mouseState;
+        }
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -63,20 +91,31 @@ namespace Bejewled.View
             var scale = 0.5f;
             this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             float x = 250;
-            for (int i = 0; i < this.Tiles.GetLength(0); i++)
+            for (var i = 0; i < this.Tiles.GetLength(0); i++)
             {
                 float y = 50;
-                for (int j = 0; j < this.Tiles.GetLength(1); j++)
+                for (var j = 0; j < this.Tiles.GetLength(1); j++)
                 {
-                    this.spriteBatch.Draw(this.textureTiles[this.Tiles[i, j]], new Vector2(x, y), null, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+                    this.spriteBatch.Draw(
+                        this.textureTiles[this.Tiles[i, j]], 
+                        new Vector2(x, y), 
+                        null, 
+                        Color.White, 
+                        0f, 
+                        Vector2.Zero, 
+                        0.5f, 
+                        SpriteEffects.None, 
+                        0);
                     y += 65;
                 }
+
                 x += 65;
             }
-            
-            this.spriteBatch.DrawString(this.scoreFont,
-                "Score: " + this.score.PlayerScore.ToString(),
-                new Vector2(30, 120),
+
+            this.spriteBatch.DrawString(
+                this.scoreFont, 
+                "Score: " + this.score.PlayerScore, 
+                new Vector2(30, 120), 
                 Color.GreenYellow);
             this.spriteBatch.Draw(this.hintButton, new Vector2(60, 430), null, Color.White);
             this.spriteBatch.End();
@@ -119,14 +158,12 @@ namespace Bejewled.View
             this.scoreFont = this.Content.Load<SpriteFont>("scoreFont");
             this.hintButton = this.Content.Load<Texture2D>(@"hintButton");
 
-
             if (this.OnLoad != null)
             {
                 this.OnLoad(this, EventArgs.Empty);
             }
-          this.assetManager.PlayMusic("snd_music");
 
-      
+            this.assetManager.PlayMusic("snd_music");
 
             // TODO: use this.Content to load your game content here
         }
@@ -153,13 +190,11 @@ namespace Bejewled.View
                 this.Exit();
             }
 
+            this.mouseState = Mouse.GetState();
+            this.DetectGameBoardClick();
+
             // TODO: Add your update logic here
             base.Update(gameTime);
         }
-   //     public static AssetManager AssetManager
-     //   {
-       //     get { return assetManager; }
-        //}
     }
-   
 }
