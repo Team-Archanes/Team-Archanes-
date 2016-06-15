@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework.Media;
+
 namespace Bejewled.View
 {
     using System;
@@ -6,7 +8,6 @@ namespace Bejewled.View
     using Bejewled.Model.Interfaces;
 
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
@@ -34,7 +35,7 @@ namespace Bejewled.View
             this.graphics.PreferredBackBufferHeight = 600;
             this.graphics.PreferredBackBufferWidth = 800;
             this.Content.RootDirectory = "Content";
-            this.assetManager = new AssetManager(Content);
+            assetManager = new AssetManager(Content);
         }
 
         public event EventHandler OnLoad;
@@ -54,6 +55,7 @@ namespace Bejewled.View
             this.spriteBatch.End();
             var scale = 0.5f;
             this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            
             this.spriteBatch.Draw(
                 this.textureTiles[0], 
                 new Vector2(250, 115), 
@@ -110,12 +112,15 @@ namespace Bejewled.View
             this.textureTiles[5] = this.Content.Load<Texture2D>(@"whitegemTrans");
             this.textureTiles[6] = this.Content.Load<Texture2D>(@"yellowgemTrans");
             this.grid = this.Content.Load<Texture2D>(@"boardFinal");
-            //this.assetManager.PlayMusic("snd_music");
+            
 
             if (this.OnLoad != null)
             {
                 this.OnLoad(this, EventArgs.Empty);
             }
+          this.assetManager.PlayMusic("snd_music");
+
+      
 
             // TODO: use this.Content to load your game content here
         }
@@ -145,5 +150,10 @@ namespace Bejewled.View
             // TODO: Add your update logic here
             base.Update(gameTime);
         }
+   //     public static AssetManager AssetManager
+     //   {
+       //     get { return assetManager; }
+        //}
     }
+   
 }

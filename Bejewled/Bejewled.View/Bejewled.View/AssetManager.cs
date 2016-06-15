@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Audio;
+﻿using System;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
@@ -12,12 +13,12 @@ public class AssetManager
         this.contentManager = Content;
     }
 
-    public Texture2D GetSprite(string assetName)
-    {
-        if (assetName == "")
-            return null;
-        return contentManager.Load<Texture2D>(assetName);
-    }
+ //   public Texture2D GetSprite(string assetName)
+ //   {
+ //       if (assetName == "")
+ //           return null;
+ //       return contentManager.Load<Texture2D>(assetName);
+ //   }
 
     public void PlaySound(string assetName)
     {
@@ -28,6 +29,7 @@ public class AssetManager
     public void PlayMusic(string assetName, bool repeat = true)
     {
         MediaPlayer.IsRepeating = repeat;
+     
         MediaPlayer.Play(contentManager.Load<Song>(assetName));
     }
 
