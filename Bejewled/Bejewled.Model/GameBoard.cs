@@ -100,7 +100,7 @@
 
                 for (int col = 1; col < gameBoard.GetLength(1); col++)
                 {
-                    if (gameBoard[row, col].Equals(tempStackOfTiles.Peek()))
+                    if (gameBoard[row, col].TileType.Equals(tempStackOfTiles.Peek().TileType))
                     {
                         tempStackOfTiles.Push(gameBoard[row, col]);
                     }
@@ -128,7 +128,7 @@
 
                 for (int row = 1; row < gameBoard.GetLength(0); row++)
                 {
-                    if (gameBoard[row, col].Equals(tempStackOfTiles.Peek()))
+                    if (gameBoard[row, col].TileType.Equals(tempStackOfTiles.Peek().TileType))
                     {
                         tempStackOfTiles.Push(gameBoard[row, col]);
                     }
