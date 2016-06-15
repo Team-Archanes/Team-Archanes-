@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BejeweledPresenter.cs" />
     <Compile Include="Enums\TileType.cs" />
+    <Compile Include="EventArgs\TileEventArgs.cs" />
     <Compile Include="Exceptions\InvalidTileCoordinateException.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Interfaces\IGameBoard.cs" />

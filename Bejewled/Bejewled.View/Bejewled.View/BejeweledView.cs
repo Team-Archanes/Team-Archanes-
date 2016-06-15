@@ -4,6 +4,7 @@ namespace Bejewled.View
     using System.Windows.Forms;
 
     using Bejewled.Model;
+    using Bejewled.Model.EventArgs;
     using Bejewled.Model.Interfaces;
 
     using Microsoft.Xna.Framework;
@@ -54,6 +55,8 @@ namespace Bejewled.View
 
         public event EventHandler OnLoad;
 
+        public event EventHandler<TileEventArgs> OnTileClicked;
+
         public int[,] Tiles { get; set; }
 
         public void DetectGameBoardClick()
@@ -67,9 +70,12 @@ namespace Bejewled.View
                 var mousePos = new Point(this.mouseState.X, this.mouseState.Y);
                 if (this.clickableArea.Contains(mousePos))
                 {
-                    var indexX = Math.Floor((double)(this.mouseState.X - 240) / 65);
-                    var indexY = Math.Floor((double)(this.mouseState.Y - 40) / 65);
-                    MessageBox.Show(indexX + " " + indexY);
+                    var indexX = (int)Math.Floor((double)(this.mouseState.X - 240) / 65);
+                    var indexY = (int)Math.Floor((double)(this.mouseState.Y - 40) / 65);
+                    if (this.OnTileClicked != null)
+                    {
+                        this.OnTileClicked(this, new TileEventArgs(indexX, indexY));
+                    }
                 }
             }
 

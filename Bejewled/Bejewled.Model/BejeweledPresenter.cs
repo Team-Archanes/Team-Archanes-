@@ -2,6 +2,7 @@ namespace Bejewled.Model
 {
     using System;
 
+    using Bejewled.Model.EventArgs;
     using Bejewled.Model.Interfaces;
 
     public class BejeweledPresenter
@@ -15,9 +16,15 @@ namespace Bejewled.Model
             this.gameBoard = gameBoard;
             this.view = view;
             this.view.OnLoad += this.GameLoaded;
+            this.view.OnTileClicked += TileClicked;
         }
 
-        private void GameLoaded(object sender, EventArgs eventArgs)
+        private void TileClicked(object sender, TileEventArgs tileEventArgs)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GameLoaded(object sender, System.EventArgs eventArgs)
         {
             this.view.Tiles = this.gameBoard.InitializeGameBoard();
         }
