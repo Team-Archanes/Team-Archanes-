@@ -78,9 +78,78 @@
 
         private void CheckForMatch()
         {
-            // todo: add logic for checking for match i.e at least tree equal tiles
+            List<ITile[]> allTileMatches = GetAllTileMatches();
+
+            // todo: add logic for adding points for each match, depending on the count
+
+            // todo: add logic for removing the found matches
             this.RemoveMatchedTiles();
+
             throw new NotImplementedException();
+        }
+
+        // Getting all horizontal and vertical matches on the GameBoard // ATanev
+        private List<ITile[]> GetAllTileMatches()
+        {
+            List<ITile[]> allTileMatches = new List<ITile[]>();
+
+            for (int row = 0; row < gameBoard.GetLength(0); row++)
+            {
+                var tempStackOfTiles = new Stack<ITile>();
+                tempStackOfTiles.Push(gameBoard[row, 0]);
+
+                for (int col = 1; col < gameBoard.GetLength(1); col++)
+                {
+                    if (gameBoard[row, col].Equals(tempStackOfTiles.Peek()))
+                    {
+                        tempStackOfTiles.Push(gameBoard[row, col]);
+                    }
+                    else
+                    {
+                        if (tempStackOfTiles.Count >= 3)
+                        {
+                            allTileMatches.Add(tempStackOfTiles.ToArray());
+                        }
+                        tempStackOfTiles.Clear();
+                        tempStackOfTiles.Push(gameBoard[row, col]);
+                    }
+
+                    if (tempStackOfTiles.Count >= 3)
+                    {
+                        allTileMatches.Add(tempStackOfTiles.ToArray());
+                    }
+                }
+            }
+
+            for (int col = 0; col < gameBoard.GetLength(1); col++)
+            {
+                var tempStackOfTiles = new Stack<ITile>();
+                tempStackOfTiles.Push(gameBoard[0, col]);
+
+                for (int row = 1; row < gameBoard.GetLength(0); row++)
+                {
+                    if (gameBoard[row, col].Equals(tempStackOfTiles.Peek()))
+                    {
+                        tempStackOfTiles.Push(gameBoard[row, col]);
+                    }
+                    else
+                    {
+                        if (tempStackOfTiles.Count >= 3)
+                        {
+                            allTileMatches.Add(tempStackOfTiles.ToArray());
+                        }
+                        tempStackOfTiles.Clear();
+                        tempStackOfTiles.Push(gameBoard[row, col]);
+                    }
+
+                    if (tempStackOfTiles.Count >= 3)
+                    {
+                        allTileMatches.Add(tempStackOfTiles.ToArray());
+                    }
+                }
+            }
+
+            return allTileMatches;
         }
 
         private void MoveDownTiles()
