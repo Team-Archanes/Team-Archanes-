@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Bejewled.Model.Interfaces;
+    using Bejewled.Model.Enums;
 
     public class GameBoard : IGameBoard
     {
@@ -34,7 +35,7 @@
 
         }
 
-        public int [,] InitializeGameBoard()
+        public int[,] InitializeGameBoard()
         {
             for (var row = 0; row < this.gameBoard.GetLength(0); row++)
             {
@@ -91,14 +92,15 @@
 
         private void CheckForMatch()
         {
-            List<ITile[]> allTileMatches = GetAllTileMatches();
+            List<ITile[]> allTileMatches = this.GetAllTileMatches();
 
             // todo: add logic for adding points for each match, depending on the count
 
-            // todo: add logic for removing the found matches
-            this.RemoveMatchedTiles();
+            this.RemoveMatchedTiles(allTileMatches);
 
-            throw new NotImplementedException();
+            this.MoveDownTiles();
+
+            this.GenerateTilesOnEmptySpots();
         }
 
         // Getting all horizontal and vertical matches on the GameBoard // ATanev
@@ -165,17 +167,57 @@
             return allTileMatches;
         }
 
-        private void MoveDownTiles()
+        // Removing matched Tiles by replacing them with an Empty one // ATanev
+        private void RemoveMatchedTiles(List<ITile[]> matchesToRemove)
         {
-            // todo: add logic for movig down tiles which replaces the matched one
-            throw new NotImplementedException();
+            foreach (var match in matchesToRemove)
+            {
+                foreach (var tile in match)
+                {
+                    if (gameBoard[tile.Position.X, tile.Position.Y].TileType != TileType.Empty)
+                    {
+                        gameBoard[tile.Position.X, tile.Position.Y] = new Tile(TileType.Empty, gameBoard[tile.Position.X, tile.Position.Y].Position);
+                    }
+                }
+            }
         }
 
-        private void RemoveMatchedTiles()
+        // Moving everything down, if possible // ATanev
+        private void MoveDownTiles()
         {
-            // todo: logic for removing matched tiles
-            this.MoveDownTiles();
-            throw new NotImplementedException();
+            // Moving tiles down until there are no changes // ATanev
+            bool thereIsChange = true;
+            while (thereIsChange)
+            {
+                thereIsChange = false;
+
+                for (int row = 0; row < gameBoard.GetLength(0) - 1; row++)
+                {
+                    for (int col = 0; col < gameBoard.GetLength(1); col++)
+                    {
+                        if (gameBoard[row, col].TileType != TileType.Empty && gameBoard[row + 1, col].TileType == TileType.Empty)
+                        {
+                            SwapTiles(gameBoard[row, col], gameBoard[row + 1, col]);
+                            thereIsChange = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        // On all empty spots of the gameboard we generate new tiles // ATanev
+        private void GenerateTilesOnEmptySpots()
+        {
+            for (int row = 0; row < gameBoard.GetLength(0); row++)
+            {
+                for (int col = 0; col < gameBoard.GetLength(1); col++)
+                {
+                    if (gameBoard[row, col].TileType == TileType.Empty)
+                    {
+                        gameBoard[row, col] = this.tileGenerator.CreateRandomTile(row, col);
+                    }
+                }
+            }
         }
 
         // Logic for swaping tiles // ATanev
