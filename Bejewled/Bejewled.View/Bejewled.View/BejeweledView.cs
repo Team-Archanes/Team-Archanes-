@@ -32,6 +32,8 @@ namespace Bejewled.View
 
         private SpriteFont scoreFont;
 
+        private Texture2D hintButton;
+
         public BejeweledView()
         {
             this.textureTiles = new Texture2D[7];
@@ -85,6 +87,7 @@ namespace Bejewled.View
                 "Score: " + this.score.PlayerScore.ToString(),
                 new Vector2(30, 120),
                 Color.GreenYellow);
+            this.spriteBatch.Draw(this.hintButton, new Vector2(60, 430), null, Color.White);
             this.spriteBatch.End();
 
             // TODO: Add your drawing code here
@@ -122,6 +125,7 @@ namespace Bejewled.View
             this.textureTiles[6] = this.Content.Load<Texture2D>(@"yellowgemTrans");
             this.grid = this.Content.Load<Texture2D>(@"boardFinal");
             this.scoreFont = this.Content.Load<SpriteFont>("scoreFont");
+            this.hintButton = this.Content.Load<Texture2D>(@"hintButton");
 
 
             if (this.OnLoad != null)
