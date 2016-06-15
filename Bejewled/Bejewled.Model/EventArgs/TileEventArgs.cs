@@ -4,15 +4,21 @@
 
     public class TileEventArgs : EventArgs
     {
-        public TileEventArgs(int x, int y)
+        public TileEventArgs(int firstTileX, int firstTileY, int secondTileX, int secondTileY)
         {
-            this.X = x;
-            this.Y = y;
+            this.FirstTileX = firstTileX;
+            this.FirstTileY = firstTileY;
+            this.SecondTileX = firstTileX;
+            this.SecondTileY = firstTileY;
         }
 
-        public int X { get; set; }
+        public int FirstTileX { get; set; }
 
-        public int Y { get; set; }
+        public int FirstTileY { get; set; }
+
+        public int SecondTileX { get; set; }
+
+        public int SecondTileY { get; set; }
     }
 }
 

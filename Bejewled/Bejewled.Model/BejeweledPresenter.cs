@@ -21,7 +21,7 @@ namespace Bejewled.Model
 
         private void TileClicked(object sender, TileEventArgs tileEventArgs)
         {
-            throw new NotImplementedException();
+            this.gameBoard
         }
 
         private void GameLoaded(object sender, System.EventArgs eventArgs)

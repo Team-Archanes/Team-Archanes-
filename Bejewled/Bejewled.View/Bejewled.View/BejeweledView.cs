@@ -1,7 +1,6 @@
 namespace Bejewled.View
 {
     using System;
-    using System.Windows.Forms;
 
     using Bejewled.Model;
     using Bejewled.Model.EventArgs;
@@ -10,8 +9,6 @@ namespace Bejewled.View
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-
-    using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 
     /// <summary>
     /// This is the main type for your game
@@ -28,9 +25,13 @@ namespace Bejewled.View
 
         private Rectangle clickableArea = new Rectangle(240, 40, 525, 525);
 
+        private Point fistClickedTileCoordinates;
+
         private Texture2D grid;
 
         private Texture2D hintButton;
+
+        private bool isFirstClick;
 
         private MouseState mouseState;
 
@@ -72,9 +73,25 @@ namespace Bejewled.View
                 {
                     var indexX = (int)Math.Floor((double)(this.mouseState.X - 240) / 65);
                     var indexY = (int)Math.Floor((double)(this.mouseState.Y - 40) / 65);
-                    if (this.OnTileClicked != null)
+                    if (this.isFirstClick)
                     {
-                        this.OnTileClicked(this, new TileEventArgs(indexX, indexY));
+                        this.fistClickedTileCoordinates = new Point(indexX, indexY);
+                        this.isFirstClick = false;
+                    }
+                    else
+                    {
+                        if (this.OnTileClicked != null)
+                        {
+                            this.OnTileClicked(
+                                this, 
+                                new TileEventArgs(
+                                    this.fistClickedTileCoordinates.X, 
+                                    this.fistClickedTileCoordinates.Y, 
+                                    indexX, 
+                                    indexY));
+                        }
+
+                        this.isFirstClick = true;
                     }
                 }
             }
@@ -141,6 +158,8 @@ namespace Bejewled.View
             // TODO: Add your initialization logic here
             this.presenter = new BejeweledPresenter(this, new GameBoard());
             this.IsMouseVisible = true;
+            this.fistClickedTileCoordinates = new Point(0, 0);
+            this.isFirstClick = true;
             base.Initialize();
         }
 
