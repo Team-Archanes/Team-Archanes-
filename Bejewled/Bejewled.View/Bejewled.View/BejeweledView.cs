@@ -85,8 +85,10 @@ namespace Bejewled.View
                             this.OnTileClicked(
                                 this, 
                                 new TileEventArgs(
+                                    this.Tiles[this.fistClickedTileCoordinates.X, this.fistClickedTileCoordinates.Y],
                                     this.fistClickedTileCoordinates.X, 
                                     this.fistClickedTileCoordinates.Y, 
+                                    this.Tiles[indexX, indexY],
                                     indexX, 
                                     indexY));
                         }

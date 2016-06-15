@@ -3,5 +3,7 @@
     public interface IGameBoard
     {
         int[,] InitializeGameBoard();
+
+        void CheckForValidMove(ITile firstClickedTile, ITile secondClickedTile);
     }
 }
