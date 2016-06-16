@@ -35,6 +35,18 @@
             this.CheckVertical();
         }
 
+
+        private void CheckForMatch()
+        {
+            var allTileMatches = this.GetAllTileMatches();
+
+            this.RemoveMatchedTiles(allTileMatches);
+
+            this.MoveDownTiles();
+
+            this.GenerateTilesOnEmptySpots();
+        }
+
         // Checks if move is valid
         public void CheckForValidMove(ITile firstClickedTile, ITile secondClickedTile)
         {
@@ -43,8 +55,11 @@
 
             if (differenceX + differenceY == 1)
             {
+                this.SwapTiles(firstClickedTile, secondClickedTile);
+                CheckForMatch();
+                return;
                 if (this.firstTileList.Contains(
-                    this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]))
+                     this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]))
                 {
                     if (this.secondTileList[this.firstTileList.IndexOf(this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y])] == this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y])
                     {
@@ -92,7 +107,7 @@
                     {
                         this.SwapTiles(firstClickedTile, secondClickedTile);
                     }*/
-                    
+
                 }
             }
         }
@@ -302,16 +317,7 @@
             return this.GenerateNumericGameBoard();
         }
 
-        private void CheckForMatch()
-        {
-            var allTileMatches = this.GetAllTileMatches();
 
-            this.RemoveMatchedTiles(allTileMatches);
-
-            this.MoveDownTiles();
-
-            this.GenerateTilesOnEmptySpots();
-        }
 
         private void CheckVertical()
         {
@@ -409,13 +415,15 @@
             for (var row = 0; row < this.gameBoard.GetLength(0); row++)
             {
                 var tempStackOfTiles = new Stack<ITile>();
-                tempStackOfTiles.Push(this.gameBoard[row, 0]);
+                // tempStackOfTiles.Push(this.gameBoard[row, 0]);
+                tempStackOfTiles.Push(new Tile(gameBoard[row, 0].TileType, gameBoard[row, 0].Position));
 
                 for (var col = 1; col < this.gameBoard.GetLength(1); col++)
                 {
                     if (this.gameBoard[row, col].TileType.Equals(tempStackOfTiles.Peek().TileType))
                     {
                         tempStackOfTiles.Push(this.gameBoard[row, col]);
+                        // tempStackOfTiles.Push(new Tile(gameBoard[row, col].TileType, new TilePosition(row, col)));
                     }
                     else
                     {
@@ -426,12 +434,13 @@
 
                         tempStackOfTiles.Clear();
                         tempStackOfTiles.Push(this.gameBoard[row, col]);
+                        //tempStackOfTiles.Push(new Tile(gameBoard[row, col].TileType, gameBoard[row, col].Position));
                     }
+                }
 
-                    if (tempStackOfTiles.Count >= 3)
-                    {
-                        allTileMatches.Add(tempStackOfTiles.ToArray());
-                    }
+                if (tempStackOfTiles.Count >= 3)
+                {
+                    allTileMatches.Add(tempStackOfTiles.ToArray());
                 }
             }
 
@@ -456,11 +465,11 @@
                         tempStackOfTiles.Clear();
                         tempStackOfTiles.Push(this.gameBoard[row, col]);
                     }
+                }
 
-                    if (tempStackOfTiles.Count >= 3)
-                    {
-                        allTileMatches.Add(tempStackOfTiles.ToArray());
-                    }
+                if (tempStackOfTiles.Count >= 3)
+                {
+                    allTileMatches.Add(tempStackOfTiles.ToArray());
                 }
             }
 
@@ -560,7 +569,7 @@
                     if (this.gameBoard[tile.Position.X, tile.Position.Y].TileType != TileType.Empty)
                     {
                         this.gameBoard[tile.Position.X, tile.Position.Y] = new Tile(
-                            TileType.Empty, 
+                            TileType.Empty,
                             this.gameBoard[tile.Position.X, tile.Position.Y].Position);
                     }
                 }
@@ -571,21 +580,36 @@
         {
             this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y] = secondClickedTile;
             this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y] = firstClickedTile;
-            bool isVertical = false;
-            int matchesLenght = this.CheckForHorizontalMatch(firstClickedTile);
-            if (matchesLenght > 3)
-            {
-                this.RemoveTiles(isVertical, secondClickedTile);
-            }
-            else
-            {
-                matchesLenght = this.CheckForVerticalMatch(firstClickedTile);
-            }
-            if (matchesLenght>3)
-            {
-                isVertical = true;
-                this.RemoveTiles(isVertical, firstClickedTile);
-            }
+
+            int x = firstClickedTile.Position.X;
+            int y = firstClickedTile.Position.Y;
+
+            firstClickedTile.Position.X = secondClickedTile.Position.X;
+            firstClickedTile.Position.Y = secondClickedTile.Position.Y;
+
+            secondClickedTile.Position.X = x;
+            secondClickedTile.Position.Y = y;
+
+
+
+
+
+
+            /* bool isVertical = false;
+             int matchesLenght = this.CheckForHorizontalMatch(firstClickedTile);
+             if (matchesLenght > 3)
+             {
+                 this.RemoveTiles(isVertical, secondClickedTile);
+             }
+             else
+             {
+                 matchesLenght = this.CheckForVerticalMatch(firstClickedTile);
+             }
+             if (matchesLenght>3)
+             {
+                 isVertical = true;
+                 this.RemoveTiles(isVertical, firstClickedTile);
+             }*/
             this.CheckForMatch();
         }
 
@@ -593,7 +617,7 @@
         {
             if (isVertical)
             {
-                
+
             }
         }
 

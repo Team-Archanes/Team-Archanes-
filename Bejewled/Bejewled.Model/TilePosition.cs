@@ -1,6 +1,6 @@
 ﻿namespace Bejewled.Model
 {
-    public struct TilePosition
+    public class TilePosition
     {
         public int X { get; set; }
 
