@@ -63,7 +63,6 @@ namespace Bejewled.Model
                 var allTileMatches = this.GetAllTileMatches();
                 if (allTileMatches.Count == 0)
                 {
-                    Thread.Sleep(100);
                     this.SwapTiles(firstClickedTile, secondClickedTile);
                 }
                 else
