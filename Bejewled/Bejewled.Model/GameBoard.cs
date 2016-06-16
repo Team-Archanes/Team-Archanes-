@@ -1,4 +1,6 @@
-﻿namespace Bejewled.Model
+﻿using System.Threading;
+
+namespace Bejewled.Model
 {
     using System;
     using System.Collections.Generic;
@@ -53,10 +55,26 @@
             var differenceX = Math.Abs(firstClickedTile.Position.X - secondClickedTile.Position.X);
             var differenceY = Math.Abs(firstClickedTile.Position.Y - secondClickedTile.Position.Y);
 
+            // todo: Needs to be implemented better
             if (differenceX + differenceY == 1)
             {
                 this.SwapTiles(firstClickedTile, secondClickedTile);
-                CheckForMatch();
+
+                var allTileMatches = this.GetAllTileMatches();
+                if (allTileMatches.Count == 0)
+                {
+                    Thread.Sleep(100);
+                    this.SwapTiles(firstClickedTile, secondClickedTile);
+                }
+                else
+                {
+                    this.RemoveMatchedTiles(allTileMatches);
+
+                    this.MoveDownTiles();
+
+                    this.GenerateTilesOnEmptySpots();
+                }
+               // CheckForMatch();
                 return;
                 if (this.firstTileList.Contains(
                      this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]))
@@ -395,15 +413,55 @@
         // On all empty spots of the gameboard we generate new tiles // ATanev
         private void GenerateTilesOnEmptySpots()
         {
+            var rand = new Random();
+
             for (var row = 0; row < this.gameBoard.GetLength(0); row++)
             {
                 for (var col = 0; col < this.gameBoard.GetLength(1); col++)
                 {
                     if (this.gameBoard[row, col].TileType == TileType.Empty)
                     {
-                        this.gameBoard[row, col] = this.tileGenerator.CreateRandomTile(row, col);
+                        //  var newTile = this.tileGenerator.CreateRandomTile(row, col);
+                        // this.gameBoard[row, col] = newTile;
+                        var tileNum = rand.Next(7);
+
+                        switch (tileNum)
+                        {
+                            case 0:
+                                this.gameBoard[row, col] = new Tile(TileType.Red, new TilePosition { X = row, Y = col });
+                                break;
+                            case 1:
+                                this.gameBoard[row, col] = new Tile(TileType.Green, new TilePosition { X = row, Y = col });
+                                break;
+                            case 2:
+                                this.gameBoard[row, col] = new Tile(TileType.Blue, new TilePosition { X = row, Y = col });
+                                break;
+                            case 3:
+                                this.gameBoard[row, col] = new Tile(TileType.RainBow, new TilePosition { X = row, Y = col });
+                                break;
+                            case 4:
+                                this.gameBoard[row, col] = new Tile(TileType.Purple, new TilePosition { X = row, Y = col });
+                                break;
+                            case 5:
+                                this.gameBoard[row, col] = new Tile(TileType.White, new TilePosition { X = row, Y = col });
+                                break;
+                            case 6:
+                                this.gameBoard[row, col] = new Tile(TileType.Yellow, new TilePosition { X = row, Y = col });
+                                break;
+                        }
                     }
                 }
+            }
+
+            var allTileMatches = this.GetAllTileMatches();
+            
+            if (allTileMatches.Count != 0)
+            {
+                this.RemoveMatchedTiles(allTileMatches);
+
+                this.MoveDownTiles();
+
+                this.GenerateTilesOnEmptySpots();
             }
         }
 
