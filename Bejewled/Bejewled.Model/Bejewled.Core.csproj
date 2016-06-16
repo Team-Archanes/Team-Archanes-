@@ -64,6 +64,7 @@
     <Compile Include="EventArgs\TileEventArgs.cs" />
     <Compile Include="Exceptions\InvalidTileCoordinateException.cs" />
     <Compile Include="GameBoard.cs" />
+    <Compile Include="GlobalScore.cs" />
     <Compile Include="Interfaces\IGameBoard.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IScore.cs" />
