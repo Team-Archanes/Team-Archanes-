@@ -619,6 +619,8 @@ namespace Bejewled.Model
         // Removing matched Tiles by replacing them with an Empty one // ATanev
         private void RemoveMatchedTiles(List<ITile[]> matchesToRemove)
         {
+            GlobalScore.globalScore += matchesToRemove.Count;
+
             foreach (var match in matchesToRemove)
             {
                 foreach (var tile in match)

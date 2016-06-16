@@ -119,8 +119,8 @@ namespace Bejewled.View
             var scale = 0.5f;
             this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             this.spriteBatch.DrawString(
-                this.scoreFont, 
-                "Score: " + this.score.PlayerScore, 
+                this.scoreFont,
+                "Score: " + GlobalScore.globalScore,
                 new Vector2(30, 120), 
                 Color.GreenYellow);
             this.spriteBatch.Draw(this.hintButton, new Vector2(60, 430), null, Color.White);
