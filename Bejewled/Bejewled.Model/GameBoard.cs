@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Bejewled.Model.Enums;
     using Bejewled.Model.Interfaces;
@@ -12,14 +13,26 @@
 
         private const int NumberOfRows = 8;
 
+        private readonly List<ITile> firstTileList;
+
         private readonly ITile[,] gameBoard;
+
+        private readonly List<ITile> secondTileList;
 
         private readonly TileGenerator tileGenerator;
 
         public GameBoard()
         {
             this.gameBoard = new ITile[NumberOfRows, NumberOfColumn];
+            this.firstTileList = new List<ITile>();
+            this.secondTileList = new List<ITile>();
             this.tileGenerator = new TileGenerator();
+        }
+
+        public void AvaliableMoves()
+        {
+            this.HorizontalCheck();
+            this.CheckVertical();
         }
 
         // Checks if move is valid
@@ -28,10 +41,59 @@
             var differenceX = Math.Abs(firstClickedTile.Position.X - secondClickedTile.Position.X);
             var differenceY = Math.Abs(firstClickedTile.Position.Y - secondClickedTile.Position.Y);
 
-            // Checking if tiles are next to each other either by X or by Y // ATanev
             if (differenceX + differenceY == 1)
             {
-                this.SwapTiles(firstClickedTile, secondClickedTile);
+                if (this.firstTileList.Contains(
+                    this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]))
+                {
+                    if (this.secondTileList[this.firstTileList.IndexOf(this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y])] == this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y])
+                    {
+                        this.SwapTiles(firstClickedTile, secondClickedTile);
+                    }
+                    /*IList<int> allIndexOf = new List<int>();
+                    var index =
+                        this.firstTileList.IndexOf(
+                            this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]);
+                    
+                    while (index != -1)
+                    {
+                        allIndexOf.Add(index);
+                        index =
+                            this.firstTileList.IndexOf(
+                                this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y],
+                                index + 1);
+                    }
+                    if (allIndexOf.Any(indexx => this.secondTileList.ElementAt(indexx).Equals(secondClickedTile)))
+                    {
+                        this.SwapTiles(firstClickedTile, secondClickedTile);
+                    }*/
+                }
+                else if (this.secondTileList.Contains(
+                      this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]))
+                {
+                    if (this.firstTileList[this.secondTileList.IndexOf(this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y])] == this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y])
+                    {
+                        this.SwapTiles(firstClickedTile, secondClickedTile);
+                    }
+                    /*IList<int> allIndexOf = new List<int>();
+                    var index =
+                        this.secondTileList.IndexOf(
+                            this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]);
+
+                    while (index != -1)
+                    {
+                        allIndexOf.Add(index);
+                        index =
+                            this.secondTileList.IndexOf(
+                                firstClickedTile,
+                                index + 1);
+                    }
+                   if (allIndexOf.Any(indexx => this.firstTileList.ElementAt(indexx).Equals(secondClickedTile)))
+                    {
+                        this.SwapTiles(firstClickedTile, secondClickedTile);
+                    }*/
+                    
+                }
             }
         }
 
@@ -236,6 +298,7 @@
                 }
             }
 
+            this.AvaliableMoves();
             return this.GenerateNumericGameBoard();
         }
 
@@ -250,7 +313,66 @@
             this.GenerateTilesOnEmptySpots();
         }
 
-        private int[,] GenerateNumericGameBoard()
+        private void CheckVertical()
+        {
+            for (var row = 0; row < this.gameBoard.GetLength(0) - 2; row++)
+            {
+                for (var column = 0; column < this.gameBoard.GetLength(1) - 1; column++)
+                {
+                    if (this.gameBoard[row, column].TileType == this.gameBoard[row + 1, column].TileType)
+                    {
+                        if (column - 1 >= 0)
+                        {
+                            if (this.gameBoard[row + 1, column].TileType == this.gameBoard[row + 2, column - 1].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row + 2, column]);
+                                this.secondTileList.Add(this.gameBoard[row + 2, column - 1]);
+                            }
+                        }
+
+                        if (column + 1 < this.gameBoard.GetLength(0))
+                        {
+                            if (this.gameBoard[row + 1, column].TileType == this.gameBoard[row + 2, column + 1].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row + 2, column]);
+                                this.secondTileList.Add(this.gameBoard[row + 2, column + 1]);
+                            }
+                        }
+
+                        if (row + 3 < this.gameBoard.GetLength(1))
+                        {
+                            if (this.gameBoard[row + 1, column].TileType == this.gameBoard[row + 3, column].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row + 2, column]);
+                                this.secondTileList.Add(this.gameBoard[row + 3, column]);
+                            }
+                        }
+                    }
+                    else if (this.gameBoard[row, column].TileType == this.gameBoard[row + 2, column].TileType)
+                    {
+                        if (column + 1 < this.gameBoard.GetLength(0))
+                        {
+                            if (this.gameBoard[row + 1, column + 1].TileType == this.gameBoard[row, column].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row + 1, column + 1]);
+                                this.secondTileList.Add(this.gameBoard[row + 1, column]);
+                            }
+                        }
+
+                        if (column - 1 >= 0)
+                        {
+                            if (this.gameBoard[row + 1, column - 1].TileType == this.gameBoard[row, column].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row + 1, column - 1]);
+                                this.secondTileList.Add(this.gameBoard[row + 1, column]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public int[,] GenerateNumericGameBoard()
         {
             var otherGameBoard = new int[NumberOfRows, NumberOfColumn];
             for (var i = 0; i < this.gameBoard.GetLength(0); i++)
@@ -342,7 +464,66 @@
                 }
             }
 
-            return allTileMatches;
+            return allTileMatches.Distinct().ToList();
+        }
+
+        private void HorizontalCheck()
+        {
+            for (var row = 0; row < this.gameBoard.GetLength(0) - 1; row++)
+            {
+                for (var column = 0; column < this.gameBoard.GetLength(1) - 2; column++)
+                {
+                    if (this.gameBoard[row, column].TileType == this.gameBoard[row, column + 1].TileType)
+                    {
+                        if (row - 1 >= 0)
+                        {
+                            if (this.gameBoard[row, column + 1].TileType == this.gameBoard[row - 1, column + 2].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row, column + 2]);
+                                this.secondTileList.Add(this.gameBoard[row - 1, column + 2]);
+                            }
+                        }
+
+                        if (row + 1 < this.gameBoard.GetLength(0))
+                        {
+                            if (this.gameBoard[row, column + 1].TileType == this.gameBoard[row + 1, column + 2].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row, column + 2]);
+                                this.secondTileList.Add(this.gameBoard[row + 1, column + 2]);
+                            }
+                        }
+
+                        if (column + 3 < this.gameBoard.GetLength(1))
+                        {
+                            if (this.gameBoard[row, column + 1].TileType == this.gameBoard[row, column + 3].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row, column + 2]);
+                                this.secondTileList.Add(this.gameBoard[row, column + 3]);
+                            }
+                        }
+                    }
+                    else if (this.gameBoard[row, column].TileType == this.gameBoard[row, column + 2].TileType)
+                    {
+                        if (row + 1 < this.gameBoard.GetLength(0))
+                        {
+                            if (this.gameBoard[row + 1, column + 1].TileType == this.gameBoard[row, column].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row + 1, column + 1]);
+                                this.secondTileList.Add(this.gameBoard[row, column + 1]);
+                            }
+                        }
+
+                        if (row - 1 >= 0)
+                        {
+                            if (this.gameBoard[row - 1, column + 1].TileType == this.gameBoard[row, column].TileType)
+                            {
+                                this.firstTileList.Add(this.gameBoard[row - 1, column + 1]);
+                                this.secondTileList.Add(this.gameBoard[row, column + 1]);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // Moving everything down, if possible // ATanev
@@ -386,14 +567,74 @@
             }
         }
 
-        // Logic for swaping tiles // ATanev
         private void SwapTiles(ITile firstClickedTile, ITile secondClickedTile)
         {
-            var tempPositionHolder = firstClickedTile.Position;
-            firstClickedTile.Position = secondClickedTile.Position;
-            secondClickedTile.Position = tempPositionHolder;
-
+            this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y] = secondClickedTile;
+            this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y] = firstClickedTile;
+            bool isVertical = false;
+            int matchesLenght = this.CheckForHorizontalMatch(firstClickedTile);
+            if (matchesLenght > 3)
+            {
+                this.RemoveTiles(isVertical, secondClickedTile);
+            }
+            else
+            {
+                matchesLenght = this.CheckForVerticalMatch(firstClickedTile);
+            }
+            if (matchesLenght>3)
+            {
+                isVertical = true;
+                this.RemoveTiles(isVertical, firstClickedTile);
+            }
             this.CheckForMatch();
+        }
+
+        private void RemoveTiles(bool isVertical, ITile firstClickedTile)
+        {
+            if (isVertical)
+            {
+                
+            }
+        }
+
+        private int CheckForVerticalMatch(ITile firstClickedTile)
+        {
+            int matchesLenght = 1;
+            for (int i = firstClickedTile.Position.Y; i < this.gameBoard.GetLength(0); i++)
+            {
+                if (this.gameBoard[i, firstClickedTile.Position.Y].TileType == firstClickedTile.TileType)
+                {
+                    matchesLenght += 1;
+                }
+            }
+            for (int i = firstClickedTile.Position.Y - 1; i >= 0; i--)
+            {
+                if (this.gameBoard[i, firstClickedTile.Position.Y].TileType == firstClickedTile.TileType)
+                {
+                    matchesLenght += 1;
+                }
+            }
+            return matchesLenght;
+        }
+
+        private int CheckForHorizontalMatch(ITile firstClickedTile)
+        {
+            int matchesLenght = 1;
+            for (int i = firstClickedTile.Position.X; i < this.gameBoard.GetLength(1); i++)
+            {
+                if (this.gameBoard[firstClickedTile.Position.X, i].TileType == firstClickedTile.TileType)
+                {
+                    matchesLenght += 1;
+                }
+            }
+            for (int i = firstClickedTile.Position.X - 1; i >= 0; i--)
+            {
+                if (this.gameBoard[firstClickedTile.Position.X, i].TileType == firstClickedTile.TileType)
+                {
+                    matchesLenght += 1;
+                }
+            }
+            return matchesLenght;
         }
     }
 }

@@ -5,5 +5,7 @@
         int[,] InitializeGameBoard();
 
         void CheckForValidMove(ITile firstClickedTile, ITile secondClickedTile);
+
+        int[,] GenerateNumericGameBoard();
     }
 }

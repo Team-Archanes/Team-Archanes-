@@ -34,6 +34,8 @@ namespace Bejewled.Model
             secondTilePosition.Y = tileEventArgs.SecondTileY;
             var secondTile = new Tile((TileType)tileEventArgs.SecondTileTypeIndex, secondTilePosition);
             this.gameBoard.CheckForValidMove(firstTile, secondTile);
+            this.view.Tiles = this.gameBoard.GenerateNumericGameBoard();
+            this.view.DrawGameBoard();
         }
     }
 }

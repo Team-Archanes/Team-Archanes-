@@ -1,6 +1,7 @@
 namespace Bejewled.View
 {
     using System;
+    using System.Windows.Forms;
 
     using Bejewled.Model;
     using Bejewled.Model.EventArgs;
@@ -9,6 +10,8 @@ namespace Bejewled.View
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+
+    using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 
     /// <summary>
     /// This is the main type for your game
@@ -71,8 +74,8 @@ namespace Bejewled.View
                 var mousePos = new Point(this.mouseState.X, this.mouseState.Y);
                 if (this.clickableArea.Contains(mousePos))
                 {
-                    var indexX = (int)Math.Floor((double)(this.mouseState.X - 240) / 65);
-                    var indexY = (int)Math.Floor((double)(this.mouseState.Y - 40) / 65);
+                    var indexY = (int)Math.Floor((double)(this.mouseState.X - 240) / 65);
+                    var indexX = (int)Math.Floor((double)(this.mouseState.Y - 40) / 65);
                     if (this.isFirstClick)
                     {
                         this.fistClickedTileCoordinates = new Point(indexX, indexY);
@@ -115,28 +118,6 @@ namespace Bejewled.View
             this.spriteBatch.End();
             var scale = 0.5f;
             this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            float x = 250;
-            for (var i = 0; i < this.Tiles.GetLength(0); i++)
-            {
-                float y = 50;
-                for (var j = 0; j < this.Tiles.GetLength(1); j++)
-                {
-                    this.spriteBatch.Draw(
-                        this.textureTiles[this.Tiles[i, j]], 
-                        new Vector2(x, y), 
-                        null, 
-                        Color.White, 
-                        0f, 
-                        Vector2.Zero, 
-                        0.5f, 
-                        SpriteEffects.None, 
-                        0);
-                    y += 65;
-                }
-
-                x += 65;
-            }
-
             this.spriteBatch.DrawString(
                 this.scoreFont, 
                 "Score: " + this.score.PlayerScore, 
@@ -147,6 +128,35 @@ namespace Bejewled.View
 
             // TODO: Add your drawing code here
             base.Draw(gameTime);
+            this.DrawGameBoard();
+
+        }
+
+        public void DrawGameBoard()
+        {
+            this.spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            float x = 50;
+            for (var i = 0; i < this.Tiles.GetLength(0); i++)
+            {
+                float y = 250;
+                for (var j = 0; j < this.Tiles.GetLength(1); j++)
+                {
+                    this.spriteBatch.Draw(
+                        this.textureTiles[this.Tiles[i, j]],
+                        new Vector2(y, x),
+                        null,
+                        Color.White,
+                        0f,
+                        Vector2.Zero,
+                        0.5f,
+                        SpriteEffects.None,
+                        0);
+                    y += 65;
+                }
+
+                x += 65;
+            }
+            this.spriteBatch.End();
         }
 
         /// <summary>

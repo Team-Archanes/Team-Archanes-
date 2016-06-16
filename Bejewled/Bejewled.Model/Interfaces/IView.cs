@@ -11,5 +11,7 @@
         event EventHandler OnLoad;
 
         event EventHandler<TileEventArgs> OnTileClicked;
+
+        void DrawGameBoard();
     }
 }
