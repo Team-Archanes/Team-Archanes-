@@ -52,3 +52,19 @@ C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\De
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Model.dll
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Model.pdb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Bejewled.Model.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Bejewled.Model.pdb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Core.csprojResolveAssemblyReference.cache
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Model.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.Model\obj\x86\Debug\Bejewled.Model.pdb

@@ -7,7 +7,7 @@
 
     public class TileGenerator
     {
-        public ITile CreateRandomTile(int row, int column)
+        public Tile CreateRandomTile(int row, int column)
         {
             var rand = new Random();
             var tileNum = rand.Next(7);

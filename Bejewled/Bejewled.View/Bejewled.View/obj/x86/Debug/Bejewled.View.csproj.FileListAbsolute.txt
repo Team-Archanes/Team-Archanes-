@@ -114,3 +114,32 @@ C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.Vi
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\hintButton.xnb
 C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\hintButton.xnb
 C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\emptyTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\boardFinal.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\greengemTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\bluegemTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\purplegemTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\rainbowTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\redgemTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\whitegemTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\yellowgemTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\hintButton.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\emptyTrans.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Content\scoreFont.xnb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.View.exe
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.View.pdb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.Model.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Bejewled.Model.pdb
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.csprojResolveAssemblyReference.cache
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.exe
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.View\obj\x86\Debug\Bejewled.View.pdb

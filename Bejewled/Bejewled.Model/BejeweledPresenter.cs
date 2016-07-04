@@ -3,7 +3,7 @@ namespace Bejewled.Model
     using Bejewled.Model.Enums;
     using Bejewled.Model.EventArgs;
     using Bejewled.Model.Interfaces;
-
+    /*
     public class BejeweledPresenter
     {
         private readonly IGameBoard gameBoard;
@@ -37,5 +37,5 @@ namespace Bejewled.Model
             this.view.Tiles = this.gameBoard.GenerateNumericGameBoard();
             this.view.DrawGameBoard();
         }
-    }
+    }*/
 }

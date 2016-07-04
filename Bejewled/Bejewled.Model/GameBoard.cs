@@ -1,4 +1,8 @@
 ﻿using System.Threading;
+using Bejewled.Model.EventArgs;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Bejewled.Model
 {
@@ -9,26 +13,169 @@ namespace Bejewled.Model
     using Bejewled.Model.Enums;
     using Bejewled.Model.Interfaces;
 
-    public class GameBoard : IGameBoard
+    public class GameBoard
     {
-        private const int NumberOfColumn = 8;
+        private Rectangle clickableArea = new Rectangle(240, 40, 525, 525);
+        private Point fistClickedTileCoordinates;
+        private bool isFirstClick;
+        private MouseState mouseState;
+        private MouseState prevMouseState = Mouse.GetState();
 
-        private const int NumberOfRows = 8;
+        private readonly int NumberOfColumn;
 
-        private readonly List<ITile> firstTileList;
+        private readonly int NumberOfRows;
 
-        private readonly ITile[,] gameBoard;
+        private int[,] tiles;
 
-        private readonly List<ITile> secondTileList;
+        private Texture2D[] textureTiles;
+
+        private readonly List<Tile> firstTileList;
+
+        private readonly Tile[,] gameBoard;
+
+        private readonly List<Tile> secondTileList;
 
         private readonly TileGenerator tileGenerator;
 
-        public GameBoard()
+
+        public GameBoard(int numberOfRows, int numberOfColumn, Texture2D[] textureTiles)
         {
-            this.gameBoard = new ITile[NumberOfRows, NumberOfColumn];
-            this.firstTileList = new List<ITile>();
-            this.secondTileList = new List<ITile>();
+            this.NumberOfRows = numberOfRows;
+            this.NumberOfColumn = numberOfColumn;
+
+            this.tiles = new int[numberOfRows, numberOfColumn];
+            this.gameBoard = new Tile[numberOfRows, numberOfColumn];
+            this.textureTiles = textureTiles;
+
+            this.firstTileList = new List<Tile>();
+            this.secondTileList = new List<Tile>();
             this.tileGenerator = new TileGenerator();
+
+            this.fistClickedTileCoordinates = new Point(0, 0);
+            this.isFirstClick = true;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            this.mouseState = Mouse.GetState();
+            this.DetectGameBoardClick();
+        }
+
+        public void DetectGameBoardClick()
+        {
+            if (this.mouseState.LeftButton == ButtonState.Pressed
+                && this.prevMouseState.LeftButton == ButtonState.Released)
+            {
+                // We now know the left mouse button is down and it wasn't down last frame
+                // so we've detected a click
+                // Now find the position 
+                var mousePos = new Point(this.mouseState.X, this.mouseState.Y);
+                if (this.clickableArea.Contains(mousePos))
+                {
+                    var indexY = (int)Math.Floor((double)(this.mouseState.X - 240) / 65);
+                    var indexX = (int)Math.Floor((double)(this.mouseState.Y - 40) / 65);
+                    if (this.isFirstClick)
+                    {
+                        this.fistClickedTileCoordinates = new Point(indexX, indexY);
+                        this.isFirstClick = false;
+                    }
+                    else
+                    {
+                        var firstTilePosition = new TilePosition();
+                        firstTilePosition.X = fistClickedTileCoordinates.X;
+                        firstTilePosition.Y = fistClickedTileCoordinates.Y;
+                        Tile firstTile = new Tile(this.gameBoard[fistClickedTileCoordinates.X, fistClickedTileCoordinates.Y].TileType, firstTilePosition);
+
+                        var secondTilePosition = new TilePosition();
+                        secondTilePosition.X = indexX;
+                        secondTilePosition.Y = indexY;
+                        Tile secondTile = new Tile(this.gameBoard[indexX, indexY].TileType, secondTilePosition);
+
+                        this.CheckForValidMove(firstTile, secondTile);
+
+                        this.tiles = this.GenerateNumericGameBoard();
+                        //this.view.DrawGameBoard();
+
+                        this.isFirstClick = true;
+                    }
+                }
+            }
+
+            // Store the mouse state so that we can compare it next frame
+            // with the then current mouse state
+            this.prevMouseState = this.mouseState;
+        }
+
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+           // spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            float x = 50;
+            for (var i = 0; i < this.tiles.GetLength(0); i++)
+            {
+                float y = 250;
+                for (var j = 0; j < this.tiles.GetLength(1); j++)
+                {
+                    spriteBatch.Draw(
+                        textureTiles[this.tiles[i, j]],
+                        new Vector2(y, x),
+                        null,
+                        Color.White,
+                        0f,
+                        Vector2.Zero,
+                        0.5f,
+                        SpriteEffects.None,
+                        0);
+                    y += 65;
+                }
+
+                x += 65;
+            }
+            spriteBatch.End();
+        }
+
+        public void InitializeGameBoard()
+        {
+            for (var row = 0; row < this.gameBoard.GetLength(0); row++)
+            {
+                for (var column = 0; column < this.gameBoard.GetLength(1); column++)
+                {
+                    var tile = this.tileGenerator.CreateRandomTile(row, column);
+                    if (row < 2 && column >= 2)
+                    {
+                        while (tile.TileType.Equals(this.gameBoard[row, column - 1].TileType)
+                               && tile.TileType.Equals(this.gameBoard[row, column - 2].TileType))
+                        {
+                            tile = this.tileGenerator.CreateRandomTile(row, column);
+                        }
+                    }
+
+                    if (row >= 2 && column < 2)
+                    {
+                        while (tile.TileType.Equals(this.gameBoard[row - 1, column].TileType)
+                               && tile.TileType.Equals(this.gameBoard[row - 2, column].TileType))
+                        {
+                            tile = this.tileGenerator.CreateRandomTile(row, column);
+                        }
+                    }
+
+                    if (row >= 2 && column >= 2)
+                    {
+                        while ((tile.TileType.Equals(this.gameBoard[row - 1, column].TileType)
+                                && tile.TileType.Equals(this.gameBoard[row - 2, column].TileType))
+                               || (tile.TileType.Equals(this.gameBoard[row, column - 1].TileType)
+                                   && tile.TileType.Equals(this.gameBoard[row, column - 2].TileType)))
+                        {
+                            tile = this.tileGenerator.CreateRandomTile(row, column);
+                        }
+                    }
+
+                    this.gameBoard[row, column] = tile;
+                }
+            }
+
+           // this.AvaliableMoves();
+           this.tiles = this.GenerateNumericGameBoard();
         }
 
         public void AvaliableMoves()
@@ -36,7 +183,6 @@ namespace Bejewled.Model
             this.HorizontalCheck();
             this.CheckVertical();
         }
-
 
         private void CheckForMatch()
         {
@@ -50,12 +196,11 @@ namespace Bejewled.Model
         }
 
         // Checks if move is valid
-        public void CheckForValidMove(ITile firstClickedTile, ITile secondClickedTile)
+        public void CheckForValidMove(Tile firstClickedTile, Tile secondClickedTile)
         {
             var differenceX = Math.Abs(firstClickedTile.Position.X - secondClickedTile.Position.X);
             var differenceY = Math.Abs(firstClickedTile.Position.Y - secondClickedTile.Position.Y);
 
-            // todo: Needs to be implemented better
             if (differenceX + differenceY == 1)
             {
                 this.SwapTiles(firstClickedTile, secondClickedTile);
@@ -72,59 +217,6 @@ namespace Bejewled.Model
                     this.MoveDownTiles();
 
                     this.GenerateTilesOnEmptySpots();
-                }
-               // CheckForMatch();
-                return;
-                if (this.firstTileList.Contains(
-                     this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]))
-                {
-                    if (this.secondTileList[this.firstTileList.IndexOf(this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y])] == this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y])
-                    {
-                        this.SwapTiles(firstClickedTile, secondClickedTile);
-                    }
-                    /*IList<int> allIndexOf = new List<int>();
-                    var index =
-                        this.firstTileList.IndexOf(
-                            this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]);
-                    
-                    while (index != -1)
-                    {
-                        allIndexOf.Add(index);
-                        index =
-                            this.firstTileList.IndexOf(
-                                this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y],
-                                index + 1);
-                    }
-                    if (allIndexOf.Any(indexx => this.secondTileList.ElementAt(indexx).Equals(secondClickedTile)))
-                    {
-                        this.SwapTiles(firstClickedTile, secondClickedTile);
-                    }*/
-                }
-                else if (this.secondTileList.Contains(
-                      this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]))
-                {
-                    if (this.firstTileList[this.secondTileList.IndexOf(this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y])] == this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y])
-                    {
-                        this.SwapTiles(firstClickedTile, secondClickedTile);
-                    }
-                    /*IList<int> allIndexOf = new List<int>();
-                    var index =
-                        this.secondTileList.IndexOf(
-                            this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y]);
-
-                    while (index != -1)
-                    {
-                        allIndexOf.Add(index);
-                        index =
-                            this.secondTileList.IndexOf(
-                                firstClickedTile,
-                                index + 1);
-                    }
-                   if (allIndexOf.Any(indexx => this.firstTileList.ElementAt(indexx).Equals(secondClickedTile)))
-                    {
-                        this.SwapTiles(firstClickedTile, secondClickedTile);
-                    }*/
-
                 }
             }
         }
@@ -289,52 +381,6 @@ namespace Bejewled.Model
                 yield return null;
             }
         }
-
-        public int[,] InitializeGameBoard()
-        {
-            for (var row = 0; row < this.gameBoard.GetLength(0); row++)
-            {
-                for (var column = 0; column < this.gameBoard.GetLength(1); column++)
-                {
-                    var tile = this.tileGenerator.CreateRandomTile(row, column);
-                    if (row < 2 && column >= 2)
-                    {
-                        while (tile.TileType.Equals(this.gameBoard[row, column - 1].TileType)
-                               && tile.TileType.Equals(this.gameBoard[row, column - 2].TileType))
-                        {
-                            tile = this.tileGenerator.CreateRandomTile(row, column);
-                        }
-                    }
-
-                    if (row >= 2 && column < 2)
-                    {
-                        while (tile.TileType.Equals(this.gameBoard[row - 1, column].TileType)
-                               && tile.TileType.Equals(this.gameBoard[row - 2, column].TileType))
-                        {
-                            tile = this.tileGenerator.CreateRandomTile(row, column);
-                        }
-                    }
-
-                    if (row >= 2 && column >= 2)
-                    {
-                        while ((tile.TileType.Equals(this.gameBoard[row - 1, column].TileType)
-                                && tile.TileType.Equals(this.gameBoard[row - 2, column].TileType))
-                               || (tile.TileType.Equals(this.gameBoard[row, column - 1].TileType)
-                                   && tile.TileType.Equals(this.gameBoard[row, column - 2].TileType)))
-                        {
-                            tile = this.tileGenerator.CreateRandomTile(row, column);
-                        }
-                    }
-
-                    this.gameBoard[row, column] = tile;
-                }
-            }
-
-            this.AvaliableMoves();
-            return this.GenerateNumericGameBoard();
-        }
-
-
 
         private void CheckVertical()
         {
@@ -635,7 +681,7 @@ namespace Bejewled.Model
             }
         }
 
-        private void SwapTiles(ITile firstClickedTile, ITile secondClickedTile)
+        private void SwapTiles(Tile firstClickedTile, Tile secondClickedTile)
         {
             this.gameBoard[firstClickedTile.Position.X, firstClickedTile.Position.Y] = secondClickedTile;
             this.gameBoard[secondClickedTile.Position.X, secondClickedTile.Position.Y] = firstClickedTile;
@@ -649,26 +695,10 @@ namespace Bejewled.Model
             secondClickedTile.Position.X = x;
             secondClickedTile.Position.Y = y;
 
+           // int temp = this.tiles[firstClickedTile.Position.X, firstClickedTile.Position.Y];
+           // this.tiles[firstClickedTile.Position.X, firstClickedTile.Position.Y] = this.tiles[secondClickedTile.Position.X, secondClickedTile.Position.Y];
+           // this.tiles[secondClickedTile.Position.X, secondClickedTile.Position.Y] = temp;
 
-
-
-
-
-            /* bool isVertical = false;
-             int matchesLenght = this.CheckForHorizontalMatch(firstClickedTile);
-             if (matchesLenght > 3)
-             {
-                 this.RemoveTiles(isVertical, secondClickedTile);
-             }
-             else
-             {
-                 matchesLenght = this.CheckForVerticalMatch(firstClickedTile);
-             }
-             if (matchesLenght>3)
-             {
-                 isVertical = true;
-                 this.RemoveTiles(isVertical, firstClickedTile);
-             }*/
             this.CheckForMatch();
         }
 

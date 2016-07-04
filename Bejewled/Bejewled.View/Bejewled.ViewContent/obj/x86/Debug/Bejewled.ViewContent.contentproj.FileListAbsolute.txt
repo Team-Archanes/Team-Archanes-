@@ -3,3 +3,4 @@ C:\Users\SilentAngel\Desktop\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.View
 C:\Users\Villy\Desktop\Group Projects\C#\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.ViewContent\obj\x86\Debug\Bejewled.ViewContent.contentprojResolveAssemblyReference.cache
 C:\Users\pc\Documents\Team-Archanes--master\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.ViewContent\obj\x86\Debug\Bejewled.ViewContent.contentprojResolveAssemblyReference.cache
 C:\Users\Ivan\Documents\GitHub\Team-Archanes-\Bejewled\Bejewled.View\Bejewled.ViewContent\obj\x86\Debug\Bejewled.ViewContent.contentprojResolveAssemblyReference.cache
+D:\SoftUni\03. C# Development\C# Fundamentals\C# OOP Basics\98. Team Project\Git project\Team-Archanes-CSharp-Advanced\Bejewled\Bejewled.View\Bejewled.ViewContent\obj\x86\Debug\Bejewled.ViewContent.contentprojResolveAssemblyReference.cache
